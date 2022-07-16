@@ -1,6 +1,6 @@
 # Convertex
 
-Remember the days when for just converting INR to US Dollars, one had to oopen Chrome.
+Remember the days when for just converting INR to US Dollars, one had to open Chrome.\n
 Well, the days are gone with Convertex
 
 Download the Android APK from the following link:
