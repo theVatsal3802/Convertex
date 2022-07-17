@@ -76,7 +76,14 @@ class _AnyToAnyState extends State<AnyToAny> {
             TextFormField(
               key: const ValueKey("amount"),
               controller: amountController,
-              decoration: const InputDecoration(hintText: "Enter Amount"),
+              decoration: InputDecoration(
+                hintText: "Enter Amount",
+                filled: true,
+                fillColor: Colors.grey[100],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
               keyboardType: TextInputType.number,
             ),
             const VerticalSizedBox(
@@ -150,6 +157,18 @@ class _AnyToAnyState extends State<AnyToAny> {
                 ),
               ],
             ),
+            Center(
+              child: IconButton(
+                tooltip: "Interchange Currency units",
+                onPressed: () {
+                  String interchange = dropDownValue1;
+                  dropDownValue1 = dropDownValue2;
+                  dropDownValue2 = interchange;
+                  setState(() {});
+                },
+                icon: const Icon(Icons.swap_horiz),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -157,16 +176,6 @@ class _AnyToAnyState extends State<AnyToAny> {
                 ElevatedButton(
                   onPressed: calculateConversion,
                   child: const Text("CONVERT"),
-                ),
-                IconButton(
-                  tooltip: "Interchange Currency units",
-                  onPressed: () {
-                    String interchange = dropDownValue1;
-                    dropDownValue1 = dropDownValue2;
-                    dropDownValue2 = interchange;
-                    setState(() {});
-                  },
-                  icon: const Icon(Icons.swap_horiz),
                 ),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
@@ -185,7 +194,13 @@ class _AnyToAnyState extends State<AnyToAny> {
             const VerticalSizedBox(
               height: 10,
             ),
-            Text(answer),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                answer,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),

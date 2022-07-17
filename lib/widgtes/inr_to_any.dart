@@ -66,7 +66,12 @@ class _UsdToAnyState extends State<UsdToAny> {
             TextFormField(
               key: const ValueKey("inr"),
               controller: inrController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.grey[100],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
                 hintText: "Enter INR",
               ),
               keyboardType: TextInputType.number,
@@ -121,7 +126,13 @@ class _UsdToAnyState extends State<UsdToAny> {
             const VerticalSizedBox(
               height: 10,
             ),
-            Text(answer),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                answer,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
             const VerticalSizedBox(
               height: 10,
             ),
